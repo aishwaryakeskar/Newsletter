@@ -3,6 +3,9 @@
 const express = require("express");
 const https = require("https");
 const bodyParser = require("body-parser");
+require('dotenv').config()
+
+console.log(process.env);
 
 const app = express();
 
@@ -35,7 +38,12 @@ app.post("/", function(req, res) {
 
     const jsonData = JSON.stringify(data);
 
-    console.log(jsonData);
+    const url = "https://usX.api.mailchimp.com/3.0/lists";
+
+    https.request(url, options, function(response) {
+
+    });
+
 })
 
 app.listen("3000", function() {
